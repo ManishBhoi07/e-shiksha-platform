@@ -65,7 +65,7 @@ export default function SubjectCards() {
                 <button
                   className="w-[80%] lg:w-[30%] inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-[#212427] rounded-lg group bg-gradient-to-br from-[#A2DFD9] to-[#CB88FF] group-hover:from-[#A2DFD9] group-hover:to-[#CB88FF] hover:text-[#EFEEE9] focus:ring-2 focus:outline-none focus:ring-[#EFEEE9]"
                   type="button"
-                  onClick={() => navigate(`/${subject.name.toLowerCase()}`)}
+                  onClick={() => navigate(`/course/${subject.name.toLowerCase()}`)}
                 >
                   <span className="px-5 py-2.5 transition-all ease-in duration-75 bg-transparent dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                     GO TO COURSE
@@ -74,7 +74,7 @@ export default function SubjectCards() {
                 <p className="mt-1 text-sm font-semibold tracking-wide text-gray-700 uppercase">
                   REV-2019'C' Scheme
                 </p>
-                
+
               </div>
             </div>
           </div>

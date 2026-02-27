@@ -1,107 +1,75 @@
-import React from 'react'
-import {
-    Drawer,
-    DrawerBody,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    Button,
-    useDisclosure,
-    VStack,
-    HStack,
-  } from '@chakra-ui/react';
-  import { Link } from 'react-router-dom';
-import {   BiMenuAltLeft} from 'react-icons/bi';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BiMenuAltLeft } from 'react-icons/bi';
 
 const Sidebarvideo = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    // <>
-    // <Drawer>
-    //     <DrawerOverlay>
-    //         <DrawerContent>
-    //             <div>
-    //                 menu
-    //             </div>
-    //         </DrawerContent>
-    //     </DrawerOverlay>
-    // </Drawer>
-    // </>
+    const [isOpen, setIsOpen] = useState(false);
 
-    <>
-    <Button
-        zIndex={'overlay'}
-        pos={'fixed'}
-        top={'4'}
-        left={'4'}
-        colorScheme="blue"
-        p={'0'}
-        w={'10'}
-        h={'10'}
-        borderRadius={'full'}
-        onClick={onOpen}
-        
-      >
-        <BiMenuAltLeft/> 
-    </Button>
+    const onOpen = () => setIsOpen(true);
+    const onClose = () => setIsOpen(false);
 
-    <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-    {/* <Drawer  placement="left" > */}
-    <DrawerOverlay>
-             <DrawerContent>
-                 <DrawerCloseButton />
-                 <DrawerHeader> Lessons</DrawerHeader>
-                 <DrawerBody>
-                    <VStack alignItems={'flex-start'}>
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/basic'}>Basic</Link>
-                    </Button>
+    return (
+        <>
+            <button
+                className="fixed z-50 top-4 left-4 p-2 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-600 focus:outline-none"
+                onClick={onOpen}
+            >
+                <BiMenuAltLeft className="text-xl" />
+            </button>
 
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/inventory'}>Tracking Inventory</Link>
-                    </Button>
+            {/* Overlay */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+                    onClick={onClose}
+                ></div>
+            )}
 
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/quiz1'}>Quiz 1</Link>
-                    </Button>
+            {/* Drawer */}
+            <div
+                className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out shadow-xl ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+            >
+                <div className="flex flex-col h-full">
+                    <div className="flex justify-between items-center p-4 border-b">
+                        <h2 className="text-xl font-bold">Lessons</h2>
+                        <button
+                            onClick={onClose}
+                            className="p-1 hover:bg-gray-100 rounded-full focus:outline-none"
+                        >
+                            ✕
+                        </button>
+                    </div>
 
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/video'}>Lectures</Link>
-                    </Button>
-
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/'}>Bonds</Link>
-                    </Button>
-
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/'}>Quiz 2</Link>
-                    </Button>
-
-                    <Button onClick={onClose} variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/'}>Case Study</Link>
-                    </Button>
-
-                    <Button variant={'ghost'} colorScheme={'blue'}>
-                        <Link to={'/'}>Projects</Link>
-                    </Button>
-                    </VStack>
-
-               
-                    
-
-                    
-                 </DrawerBody>
-             </DrawerContent>
-         </DrawerOverlay>
-    </Drawer>
-    </>
-
-
-    // <div>Sidebar</div>
-
-  );
+                    <div className="flex flex-col p-4 space-y-2 overflow-y-auto">
+                        <Link to={'/basic'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Basic
+                        </Link>
+                        <Link to={'/inventory'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Tracking Inventory
+                        </Link>
+                        <Link to={'/quiz1'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Quiz 1
+                        </Link>
+                        <Link to={'/videos'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Lectures
+                        </Link>
+                        <Link to={'/'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Bonds
+                        </Link>
+                        <Link to={'/'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Quiz 2
+                        </Link>
+                        <Link to={'/'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Case Study
+                        </Link>
+                        <Link to={'/'} onClick={onClose} className="p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors text-left font-medium">
+                            Projects
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
-export default Sidebarvideo
-
+export default Sidebarvideo;

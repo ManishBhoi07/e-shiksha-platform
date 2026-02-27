@@ -1,6 +1,6 @@
-import { ColorModeScript, ChakraProvider } from '@chakra-ui/react';
-import React, { StrictMode,  Suspense  }  from 'react';
+import React, { StrictMode, Suspense } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import "./i18n.js";
 
@@ -8,12 +8,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    <ColorModeScript />
-    <ChakraProvider>
     <Suspense fallback="loading">
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Suspense>
-    
-    </ChakraProvider>
   </StrictMode>
 );
