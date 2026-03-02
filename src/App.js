@@ -8,6 +8,8 @@ import Coursecat from './MyPages/Coursecat';
 import Aboutus from './MyPages/Aboutus';
 import Donation from './MyPages/Donation';
 import Ngoenroll from './MyComponents/Ngoenroll';
+import AccessibilitySelection from './MyPages/AccessibilitySelection';
+import ProtectedRoute from './MyComponents/ProtectedRoute';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -124,6 +126,14 @@ function App() {
         <Route path="/leaders" element={<Lead />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/banner" element={<Banner />} />
+
+        {/* Protected Accessibility Routes */}
+        <Route path="/accessibility" element={
+          <ProtectedRoute>
+            <AccessibilitySelection />
+          </ProtectedRoute>
+        } />
+
         <Route path="*" element={<Hero />} />
       </Routes>
     </div>

@@ -6,7 +6,7 @@ const links = [
   { name: 'Open roles', href: '#' },
   { name: 'Our Services', href: '#' },
   { name: 'Our values', href: '#' },
-  { name: 'Meet our leadership', href:'#leadership'},
+  { name: 'Meet our leadership', href: '#leadership' },
 ]
 const stats = [
   { name: 'Full-Time Tutors', value: '160+' },
@@ -16,48 +16,48 @@ const stats = [
 ]
 const people = [
   {
-    name: 'Aayush Talreja',
+    name: 'Cristiano Ronaldo',
     role: 'Founder + CEO',
     imageUrl:
       'https://media.licdn.com/dms/image/C4D03AQGjVJnZjakikg/profile-displayphoto-shrink_200_200/0/1657648501282?e=1700092800&v=beta&t=2hsLm8z_INY3nH59HSVzYgUFC3wyNXZ_MTRUTVCHgXA',
-      
+
   },
   {
-    name: 'Sudhanshu Sabale',
+    name: 'Lionel Messi',
     role: 'CTO + HR',
     imageUrl:
       'https://media.licdn.com/dms/image/D4D03AQGGyi7iO4NFKw/profile-displayphoto-shrink_100_100/0/1679249654187?e=1700092800&v=beta&t=52x6MXU8vQmG6xyf4d9VXrZPmZk-eynVeylJu4eqKI4',
-    
+
   },
   {
-    name: 'Anshita Talreja',
+    name: 'Virat Kohli',
     role: 'Co-Founder + COO',
     imageUrl:
       'https://media.licdn.com/dms/image/D5603AQHwd4NbcDAYyA/profile-displayphoto-shrink_100_100/0/1682758978080?e=1700092800&v=beta&t=Q6y7SLBAwemKPD7GNmlbu8OZyIePNlkXzx97cnuBnhg',
-    
+
   },
   {
-    name: 'Cheshta Gurbaxani',
+    name: 'Rohit Sharma',
     role: 'CFO',
     imageUrl:
       'https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhcnRvb24lMjBnaXJsfGVufDB8fDB8fHww',
-    
+
   },
-    {
-    name: 'Mansi Bellani',
+  {
+    name: 'Rishabh Pant',
     role: 'Data Analyst + CIO',
     imageUrl:
       'https://media.licdn.com/dms/image/D4D03AQF_sjSz2esQWA/profile-displayphoto-shrink_100_100/0/1689216851927?e=1695859200&v=beta&t=PcC2gr_o7cAiThV_uHFBsv3K_udJjZjd2d2scy55nfc',
   },
   {
-    name: 'Anuj Bagad',
+    name: 'Shubham Agarwal',
     role: 'Backend Dev + MD',
     imageUrl:
       'https://media.licdn.com/dms/image/C4D03AQG7ln3Kb53VZA/profile-displayphoto-shrink_100_100/0/1641273867979?e=1695859200&v=beta&t=La4q8Eg25kwPNzgMgDugEziMUXBECbFoAVDxSACt8pg',
-    
+
   },
   {
-    name: 'Niranjan Yeole',
+    name: 'Rishabh Pant',
     role: 'PR-Head',
     imageUrl:
       'https://media.licdn.com/dms/image/C4E03AQFMaAxosx5O8A/profile-displayphoto-shrink_100_100/0/1642847850390?e=1695859200&v=beta&t=nUjDR1YwYcLXZ7Qjxx7jPxPVPSYupqjHXzIGXWoVvGU',

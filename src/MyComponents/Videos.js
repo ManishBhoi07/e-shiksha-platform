@@ -70,8 +70,15 @@ const Videos = () => {
   const [courseContext, setCourseContext] = useState("");
   const [isQuizMode, setIsQuizMode] = useState(false);
   const [quizSubject, setQuizSubject] = useState("");
+  const [isDeafMode, setIsDeafMode] = useState(false);
 
   useEffect(() => {
+    // Check local storage for accessibility mode
+    const mode = localStorage.getItem('accessibilityMode');
+    if (mode === 'deaf') {
+      setIsDeafMode(true);
+    }
+
     const params = new URLSearchParams(location.search);
     const courseTitle = params.get("course") || "";
     const lowerTitle = courseTitle.toLowerCase();
@@ -159,7 +166,7 @@ const Videos = () => {
             <>
               {videoSrc && (
                 <iframe
-                  src={videoSrc}
+                  src={isDeafMode && videoSrc.includes('youtube.com') ? `${videoSrc}${videoSrc.includes('?') ? '&' : '?'}cc_load_policy=1` : videoSrc}
                   title="Course Video"
                   width="100%"
                   height="500"
@@ -173,6 +180,22 @@ const Videos = () => {
               <div className="flex flex-col items-center mt-4 mb-4">
                 <h2 className="text-2xl font-bold">{currentTitle}</h2>
                 <p className="text-gray-600">{courseContext}</p>
+                {isDeafMode && (
+                  <button
+                    onClick={() => {
+                      const element = document.createElement("a");
+                      const file = new Blob([`Transcript for ${currentTitle} (${courseContext})\n\n[Generic generated transcript text here...]`], { type: 'text/plain' });
+                      element.href = URL.createObjectURL(file);
+                      element.download = `${currentTitle}_transcript.txt`;
+                      document.body.appendChild(element);
+                      element.click();
+                      document.body.removeChild(element);
+                    }}
+                    className="mt-4 px-6 py-2 bg-blue-100 text-blue-800 border border-blue-400 font-semibold rounded hover:bg-blue-200 transition-colors"
+                  >
+                    Download Transcript (TXT)
+                  </button>
+                )}
               </div>
             </>
           )}
